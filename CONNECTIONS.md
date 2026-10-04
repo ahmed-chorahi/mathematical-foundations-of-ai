@@ -70,7 +70,7 @@ Statistics (04)           standard deviation is a norm of centered data
       ↓
 Optimization (05)         L2 regularization = penalty on ‖θ‖₂
       ↓
-Transformers (09)         scaling QKᵀ keeps scores in a workable range
+Transformers (09)         |qᵀk| ≤ ‖q‖‖k‖; the /√d_k factor tames the scale
 ```
 
 ## Eigenvectors
@@ -82,7 +82,7 @@ Statistics (04)           covariance matrix is symmetric
       ↓
 Machine Learning (07)     PCA = eigenvectors of the covariance matrix
       ↓
-Transformers (09)         layer normalization rescales representations
+LLM Mathematics (10)      PCA of embedding matrices exposes linear structure
 ```
 
 ## Chain Rule
@@ -100,7 +100,7 @@ LLM Training (10)                   gradients of the cross-entropy objective
 ## Softmax
 
 ```text
-Statistics (03)          normalize non-negative weights into a distribution
+Probability (03)          normalize non-negative weights into a distribution
       ↓
 Information Theory (06)  a distribution feeds entropy and cross-entropy
       ↓
@@ -126,10 +126,10 @@ Neural Networks (08)   weight decay during training
 ## The Whole Path at Once
 
 ```text
-tokens → embeddings (01) → attention with dot products (01, 09)
-       → logits (01) → softmax (03) → distribution over next token (03)
-       → cross-entropy loss (06) → gradient (02) → update (05)
-       → repeat (08)
+tokens → embeddings (09, 10) → attention with dot products (09)
+       → logits (07, 10) → softmax (03, 07) → distribution over next token (03)
+       → cross-entropy loss (06) → gradient (02, 08) → update (05, 08)
+       → repeat
 ```
 
 If you can explain every term in that line, you understand the mathematics of a language model.
